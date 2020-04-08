@@ -7,15 +7,25 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BookService } from './services/book.service';
 import { Book } from './common/book';
 import { BookListComponent } from './components/book-list/book-list.component';
+import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
+const routes:Routes=[
+ { path:  'books', component: BookListComponent },
+ {  path:  'category/:id', component: BookListComponent  },
+ {  path:  '', redirectTo: '/books', pathMatch: 'full'  },
+ {  path: '**', component: PageNotFoundComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
-    BookListComponent
+    BookListComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule 
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ BookService, HttpClient ],
   bootstrap: [AppComponent]
