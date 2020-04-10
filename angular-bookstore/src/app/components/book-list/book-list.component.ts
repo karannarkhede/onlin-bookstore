@@ -22,7 +22,7 @@ export class BookListComponent implements OnInit {
     this._activateRoute.paramMap.subscribe(
       ()=>{this.listBooks();}
     )
-    this.listBooks();
+    // this.listBooks();
   }
   listBooks(){
 

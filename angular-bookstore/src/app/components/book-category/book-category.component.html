@@ -1,0 +1,5 @@
+<div *ngFor="let bookCategory of bookCategories" class="list-group">
+    <a [href]="'/category/'+bookCategory.id" class="list-group-item">{{bookCategory.categoryName}}</a>
+    
+
+  </div>
