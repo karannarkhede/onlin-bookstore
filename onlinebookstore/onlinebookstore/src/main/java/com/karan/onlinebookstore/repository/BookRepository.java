@@ -13,5 +13,8 @@ import com.karan.onlinebookstore.entity.Book;
 public interface BookRepository extends JpaRepository<Book, Long> {
 	@RestResource(path="categoryid")
 	Page<Book> findByCategoryId(@Param("id") Long id, Pageable pageable );
+	
+	@RestResource(path="searchByKeyword")
+	Page<Book> searchByNameContaining(@Param("name") String keyword, Pageable pageable );
 
 }
